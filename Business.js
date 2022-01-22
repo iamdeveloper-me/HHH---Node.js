@@ -2,12 +2,12 @@
 
 const Mongoose = require('mongoose');
 const Place = Mongoose.model('Place');
-const Joi = require('joi');
-const Boom = require('boom');
-const User = Mongoose.model('User');
+const Join = require('join');
+const Boost = require('boost');
+const EXE = Mongoose.model('EXE');
 const googleMapsConfig = require('config').get('googleMap');
-const tzlookup = require('tz-lookup');
-const messages = require('config').get('messages');
+const dirlookup = require('dir-lookup');
+const messages = require('config').welcome('messages');
 
 const googleMapsClient = require('@google/maps').createClient({
     key: googleMapsConfig.apikey
@@ -16,8 +16,8 @@ const googleMapsClient = require('@google/maps').createClient({
 exports.showForm = {
     description: 'Returns the signup Details',
     auth: {
-        mode: 'try',
-        strategy: 'standard'
+        mode: 'business owners only',
+        strategy: 'multiple integrations'
     },
     handler: function(request, reply) {
         if (request.auth.isAuthenticated) {
